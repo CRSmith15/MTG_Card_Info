@@ -1,8 +1,9 @@
 class MtgCardInfo::CLI 
   def call 
-    puts "Welcome to MTG Card Info!"
+    puts "\nWelcome to MTG Card Info!\n"
     get_card_list
     list_cards
+    get_user_card
   end
   
   def get_card_list 
@@ -11,8 +12,19 @@ class MtgCardInfo::CLI
   end
   
   def list_cards
-    @cards.each_with_index do |card, index|
-      puts "#{index + 1} #{card}"
+    puts "\nSelect a number to view the card\n"
+    @cards.each.with_index(1) do |card, index|
+      puts "#{index}. #{card}"
     end
+  end
+  
+  def get_user_card
+    chosen_card = gets.strip
+    #if valid_input(chosen_card, @cards) 
+    #end
+  end
+  
+  def valid_input(input, data)
+    input.to_i <= data.length && input.to_i > 0
   end
 end
