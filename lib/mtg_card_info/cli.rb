@@ -19,12 +19,19 @@ class MtgCardInfo::CLI
   end
   
   def get_user_card
-    chosen_card = gets.strip
-    #if valid_input(chosen_card, @cards) 
-    #end
+    chosen_card = gets.strip.to_i
+    if valid_input(chosen_card, @cards) 
+      show_card_for(chosen_card)
+    end
   end
   
   def valid_input(input, data)
     input.to_i <= data.length && input.to_i > 0
+  end
+  
+  def show_card_for(chosen_card)
+    card = @cards[chosen_card - 1]
+    puts "Here is info on #{card}"
+    binding.pry
   end
 end
