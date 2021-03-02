@@ -1,0 +1,3 @@
+class MtgCardInfo::CLI 
+  
+end
