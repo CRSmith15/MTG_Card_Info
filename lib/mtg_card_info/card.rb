@@ -2,10 +2,16 @@ class MtgCardInfo::Card
   
   @@all = []
   
-  attr_accessor :name 
+  attr_accessor :name, :mana, :colors, :types, :power, :toughness, :text
   
-  def initialize(name)
+  def initialize(name, mana, colors, types, power, toughness, text)
     @name = name
+    @mana = mana
+    @colors = colors
+    @types = types 
+    @power = power 
+    @toughness = toughness
+    @text = text
     save
   end
   
@@ -15,9 +21,10 @@ class MtgCardInfo::Card
   
   def self.all 
     api = MtgCardInfo::API.new
-    api.fetch_cards if @@all.empty?
+    api.fetch_data if @@all.empty?
     @@all 
   end
+  
   
   
 end

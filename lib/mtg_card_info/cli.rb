@@ -32,6 +32,12 @@ class MtgCardInfo::CLI
   
   def show_card_for(chosen_card)
     card = @cards[chosen_card - 1]
-    puts "Here is info on #{card.name}"
+    puts "\nHere is info on #{card.name}!\n"
+    puts "\nColor(s): #{card.colors}\n"
+    puts "Converted Mana Cost: #{card.mana}"
+    puts "Power: #{card.power}"
+    puts "Toughness: #{card.toughness}"
+    puts "Type: #{card.types}"
+    puts "Description: #{card.text}"
   end
 end
