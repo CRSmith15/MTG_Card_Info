@@ -4,6 +4,7 @@ class MtgCardInfo::CLI
     get_card_list
     list_cards
     get_user_card
+    exit_app
   end
   
   def get_card_list 
@@ -39,5 +40,17 @@ class MtgCardInfo::CLI
     puts "Toughness: #{card.toughness}"
     puts "Type: #{card.types}"
     puts "Description: #{card.text}"
+  end
+  
+  def exit_app 
+    puts "Would you like to see another card? Type 'y' for yes or 'n' to exit."
+    user_resp = gets.strip 
+    if user_resp != "n"
+      list_cards
+      get_user_card
+      exit_app
+    else
+      puts "Happy Gathering!"
+    end
   end
 end
