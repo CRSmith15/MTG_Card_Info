@@ -21,6 +21,8 @@ class MtgCardInfo::CLI
     chosen_card = gets.strip.to_i
     if valid_input(chosen_card, @cards) 
       show_card_for(chosen_card)
+    else 
+      puts "Sorry that was not a vaild input. Choose another number."
     end
   end
   
