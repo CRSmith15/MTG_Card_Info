@@ -3,6 +3,7 @@ require_relative "./mtg_card_info/cli"
 require_relative "./mtg_card_info/card"
 require_relative "./mtg_card_info/api"
 
+require "httparty"
 require "pry"
 
 module MtgCardInfo
