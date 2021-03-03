@@ -14,6 +14,8 @@ class MtgCardInfo::Card
   end
   
   def self.all 
+    api = MtgCardInfo::API.new
+    api.fetch_cards if @@all.empty?
     @@all 
   end
   

@@ -7,8 +7,6 @@ class MtgCardInfo::CLI
   end
   
   def get_card_list 
-    MtgCardInfo::Card.new("Doom Blade")
-    MtgCardInfo::Card.new("Recall")
     @cards = MtgCardInfo::Card.all
   end
   
@@ -32,6 +30,6 @@ class MtgCardInfo::CLI
   
   def show_card_for(chosen_card)
     card = @cards[chosen_card - 1]
-    puts "Here is info on #{card}"
+    puts "Here is info on #{card.name}"
   end
 end

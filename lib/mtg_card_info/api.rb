@@ -1,14 +1,17 @@
 require "httparty"
-class MtgCardInfoAPI 
+require "pry"
+class MtgCardInfo::API 
   include HTTParty 
-  base_uri "api.magicthegathering.io"
   
-  def cards 
-    self.class.get("/v1/cards.json")
+  def fetch_cards 
+    url = "https://api.magicthegathering.io/v1/cards"
+    response = HTTParty.get(url)
+    response["cards"].each do |card|
+      name = card["name"]
+      MtgCardInfo::Card.new(name)
+    end
+      
   end
-  
-  
 end
 
-mtg_cards = MtgCardInfoAPI.new
-puts mtg_cards.cards
+
