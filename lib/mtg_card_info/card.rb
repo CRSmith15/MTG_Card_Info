@@ -1,0 +1,3 @@
+class MtgCardInfo::Card 
+  
+end

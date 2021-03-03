@@ -8,7 +8,7 @@ class MtgCardInfo::CLI
   
   def get_card_list 
     #get api data
-    @cards = ["Doom Blade", "Cancel", "Recall", "Plague Rats"]
+    @cards = MtgCardInfo::Card.all
   end
   
   def list_cards
@@ -32,6 +32,5 @@ class MtgCardInfo::CLI
   def show_card_for(chosen_card)
     card = @cards[chosen_card - 1]
     puts "Here is info on #{card}"
-    binding.pry
   end
 end
