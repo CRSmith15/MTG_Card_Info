@@ -7,14 +7,15 @@ class MtgCardInfo::CLI
   end
   
   def get_card_list 
-    #get api data
+    MtgCardInfo::Card.new("Doom Blade")
+    MtgCardInfo::Card.new("Recall")
     @cards = MtgCardInfo::Card.all
   end
   
   def list_cards
     puts "\nSelect a number to view the card\n"
     @cards.each.with_index(1) do |card, index|
-      puts "#{index}. #{card}"
+      puts "#{index}. #{card.name}"
     end
   end
   
